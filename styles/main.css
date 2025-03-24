@@ -1,0 +1,40 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+    font-family: sans-serif;
+}
+
+.calculator {
+    width: 30rem;
+    background: orange;
+    border-radius: 2rem;
+    margin: auto;
+}
+
+.calculator__buttons {
+    display: flex;
+    padding: 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-size: 2rem;
+}
+
+.calculator__buttons button {
+    background: whitesmoke;
+    outline: 0;
+    border: none;
+    width: 6.5rem;
+    height: 6.5rem;
+    border-radius: 6.5rem;
+}
+
+.calculator__equals {
+    flex-grow: 1;
+}
