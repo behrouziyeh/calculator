@@ -2,6 +2,7 @@ let add = (a, b) => a + b;
 let substract = (a, b) => a - b;
 let multiply = (a, b) => a * b;
 let divide = (a, b) => a / b;
+let remainder = (a, b) => a % b;
 
 let firstOperand = 0;
 let operator = "";
@@ -23,6 +24,10 @@ function operate(firstNumber, operator, secondNumber) {
 
         case "/":
             return divide(+firstNumber, +secondNumber);
+            break;
+
+        case "%":
+            return remainder(+firstNumber, +secondNumber);
             break;
 
         default:
