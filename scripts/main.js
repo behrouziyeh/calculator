@@ -138,3 +138,28 @@ decimalButton.addEventListener("click", () => {
     }
     updateDisplay();
 });
+
+// Keyboard support
+const clickEvent = new Event("click", { bubbles: true, cancelable: true });
+function keyboardHandler(key, button) {
+    document.addEventListener("keyup", (e) => {
+        if (e.key === key) {
+            button.dispatchEvent(clickEvent);
+        }
+    });
+}
+
+digits.forEach((digit) => {
+    keyboardHandler(digit.value, digit);
+});
+
+operatorsButtons.forEach((operatorButton) => {
+    keyboardHandler(operatorButton.value, operatorButton);
+    keyboardHandler(operatorButton.textContent, operatorButton);
+});
+
+keyboardHandler("Delete", allClearButton);
+keyboardHandler("Backspace", clearButton);
+keyboardHandler("=", calculateButton);
+keyboardHandler("Enter", calculateButton);
+keyboardHandler(".", decimalButton)
