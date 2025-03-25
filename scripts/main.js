@@ -47,7 +47,16 @@ const clearButton = calculator.querySelector(".calculator__clear");
 const calculateButton = calculator.querySelector(".calculator__equals");
 
 function updateDisplay() {
-    userInputDisplay.textContent = `${firstOperand} ${operator} ${secondOperand}`;
+    const clearFirstOperand =
+        firstOperand.length > 9
+            ? String(parseInt(firstOperand).toExponential(2))
+            : firstOperand;
+    const clearSecondOperand =
+        secondOperand.length > 9
+            ? String(parseInt(secondOperand).toExponential(2))
+            : secondOperand;
+
+    userInputDisplay.textContent = `${clearFirstOperand} ${operator} ${clearSecondOperand}`;
     resultDisplay.textContent = "";
 }
 
@@ -93,11 +102,11 @@ clearButton.addEventListener("click", () => {
 
 calculateButton.addEventListener("click", () => {
     if (firstOperand && operator && secondOperand) {
-        resultDisplay.textContent = operate(
-            firstOperand,
-            operator,
-            secondOperand
-        );
+        const result = String(operate(firstOperand, operator, secondOperand));
+        resultDisplay.textContent =
+            result.length > 9
+                ? String(parseInt(result).toExponential(2))
+                : result;
         firstOperand = operator = secondOperand = "";
     }
 });
