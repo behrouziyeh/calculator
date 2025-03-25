@@ -51,6 +51,7 @@ const operatorsButtons = calculator.querySelectorAll(".calculator__operator");
 const allClearButton = calculator.querySelector(".calculator__all-clear");
 const clearButton = calculator.querySelector(".calculator__clear");
 const calculateButton = calculator.querySelector(".calculator__equals");
+const decimalButton = calculator.querySelector(".calculator__decimal");
 
 function updateDisplay() {
     const clearFirstOperand =
@@ -126,4 +127,14 @@ calculateButton.addEventListener("click", () => {
                 : result;
         firstOperand = operator = secondOperand = "";
     }
+});
+
+decimalButton.addEventListener("click", () => {
+    if (secondOperand && !secondOperand.includes(".")) {
+        secondOperand = secondOperand + ".";
+    }
+    if (firstOperand && !firstOperand.includes(".")) {
+        firstOperand = firstOperand + ".";
+    }
+    updateDisplay();
 });
