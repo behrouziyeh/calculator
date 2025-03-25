@@ -1,7 +1,13 @@
 let add = (a, b) => a + b;
 let substract = (a, b) => a - b;
 let multiply = (a, b) => a * b;
-let divide = (a, b) => a / b;
+let divide = (a, b) => {
+    if (b === 0) {
+        return "ERROR";
+        firstOperand = operator = secondOperand = "";
+    }
+    return a / b;
+};
 let remainder = (a, b) => a % b;
 
 let firstOperand = "";
@@ -74,13 +80,24 @@ digits.forEach((digit) => {
 operatorsButtons.forEach((operatorButton) => {
     operatorButton.addEventListener("click", () => {
         if (secondOperand) {
-            firstOperand = operate(firstOperand, operator, secondOperand);
-            operator = operatorButton.value;
-            secondOperand = "";
+            if (
+                typeof operate(firstOperand, operator, secondOperand) !==
+                "number"
+            ) {
+                firstOperand = operator = secondOperand = "";
+                updateDisplay();
+
+                resultDisplay.textContent = "ERROR";
+            } else {
+                firstOperand = operate(firstOperand, operator, secondOperand);
+                operator = operatorButton.value;
+                secondOperand = "";
+                updateDisplay();
+            }
         } else if (firstOperand) {
             operator = operatorButton.value;
+            updateDisplay();
         }
-        updateDisplay();
     });
 });
 
