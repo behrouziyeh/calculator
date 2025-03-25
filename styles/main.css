@@ -34,7 +34,7 @@ body {
     color: white;
     min-height: 3rem;
     max-width: 100%;
-    word-wrap: break-word
+    word-wrap: break-word;
 }
 
 .calculator__result {

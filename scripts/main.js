@@ -162,4 +162,4 @@ keyboardHandler("Delete", allClearButton);
 keyboardHandler("Backspace", clearButton);
 keyboardHandler("=", calculateButton);
 keyboardHandler("Enter", calculateButton);
-keyboardHandler(".", decimalButton)
+keyboardHandler(".", decimalButton);
