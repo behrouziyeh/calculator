@@ -32,6 +32,7 @@ body {
 .calculator__user-input {
     font-size: 2rem;
     color: white;
+    height: 3rem;
 }
 
 .calculator__result {
